@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Detail</h1>
+    
+    <p>Name: {{ object.display_name }}</p>
+    <p>Mac Address: {{ object.mac_address }}</p>
+	<p>Serial Number: {{ object.serial_number }}</p>
+	<p>Date Assigned: {{ object.date_assigned }}</p>
+	<p>Employee: {{ object.employee }}</p>
+	<p>Asset Type: {{ object.asset_type }}</p> 
+	<p>OS Type: {{ object.os_type }}</p>
+	<p>Product Type: {{ object.product_type }}</p>
+	<p>State Type: {{ object.state_type }}</p>
+	<p>Department: {{ object.department }}</p>
+
+
+    <!-- (<a href="{% url 'itam_app:list' %}">List</a>) -->
+{% endblock %}
+
