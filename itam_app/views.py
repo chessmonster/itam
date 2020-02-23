@@ -7,7 +7,7 @@ from .models import Asset, Employee, Asset_Type, Os_Type, Product_Type, State_Ty
 
 class AssetList(ListView):
     model = Asset
-    paginate_by = 20
+    paginate_by = 50
 
 
 class AssetCreate(CreateView):

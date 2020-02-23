@@ -3,16 +3,28 @@
 {% block content %}
     <h1>Listing</h1>
     <ul>
-        {% for object in object_list %}
-            <li>
-                {{ object }}
-                <a href="{{ object.get_absolute_url }}">Details</a>
-                <a href="{% url 'itam_app:update' object.pk %}">Update</a>
-                <a href="{% url 'itam_app:delete' object.pk %}">Delete</a>
-            </li>
-        {% empty %}
-                <p>No items.</p>
-        {% endfor %}
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Mac Address</th>
+                <th>Serial Number</th>
+                <th>Date Assigned</th>
+                <th>Actions</th>
+            </tr>
+            {% for object in object_list %}
+                <tr>
+                    <td>{{ object.display_name }}</td>
+                    <td>{{ object.mac_address }}</td>
+                    <td>{{ object.serial_number }}</td>
+                    <td>{{ object.date_assigned }}</td>
+                    <td><a href="{{ object.get_absolute_url }}">Details</a> |
+                    <a href="{% url 'itam_app:update' object.pk %}">Update</a> |
+                    <a href="{% url 'itam_app:delete' object.pk %}">Delete</a></td>
+                </tr>
+            {% empty %}
+                <tr><td>No items</td></tr>
+            {% endfor %}
+        </table>
     </ul>
 
     {% if is_paginated %}
