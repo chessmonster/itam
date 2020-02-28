@@ -2,7 +2,9 @@
 
 {% block content %}
     <h1>Detail</h1>
-    
+
+   	<a href="{% url 'itam_app:get_barcode' object.serial_number %}" target="_blank">Generate Barcode</a>
+
     <p>Name: {{ object.display_name }}</p>
     <p>Mac Address: {{ object.mac_address }}</p>
 	<p>Serial Number: {{ object.serial_number }}</p>
@@ -14,7 +16,8 @@
 	<p>State Type: {{ object.state_type }}</p>
 	<p>Department: {{ object.department }}</p>
 
+	
 
-    <!-- (<a href="{% url 'itam_app:list' %}">List</a>) -->
+
 {% endblock %}
 

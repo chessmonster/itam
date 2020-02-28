@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from django.urls import path
 from . import views
 
 app_name='itam_app'
@@ -9,6 +10,8 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/$', views.AssetDetail.as_view(), name='detail'),
     url(r'^(?P<pk>\d+)/update/$', views.AssetUpdate.as_view(), name='update'),
     url(r'^(?P<pk>\d+)/delete/$', views.AssetDelete.as_view(), name='delete'),
+
+    path('get_barcode/<int:serial_number>/', views.get_barcode, name='get_barcode')    
 
     # url(r'^$', views.EmployeeList.as_view(), name='employee_list'),
     # url(r'^new_employee/$', views.EmployeeCreate.as_view(), name='employee_create'),
