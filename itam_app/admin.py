@@ -10,3 +10,5 @@ admin.site.register(Os_Type, SimpleHistoryAdmin)
 admin.site.register(Product_Type, SimpleHistoryAdmin)
 admin.site.register(State_Type, SimpleHistoryAdmin)
 admin.site.register(Department, SimpleHistoryAdmin)
+
+
