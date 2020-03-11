@@ -3,14 +3,28 @@ from vanilla import ListView, CreateView, DetailView, UpdateView, DeleteView
 from .forms import AssetForm, EmployeeForm, Asset_TypeForm, Os_TypeForm, Product_TypeForm, State_TypeForm, DepartmentForm
 from .models import Asset, Employee, Asset_Type, Os_Type, Product_Type, State_Type, Department
 from django.http import HttpResponse
+from django.db.models import Q
+from barcode.writer import ImageWriter
 
 import barcode
-from barcode.writer import ImageWriter
 
 # Asset #
 class AssetList(ListView):
     model = Asset
     paginate_by = 50
+
+    def get_queryset(self):
+        try:
+            a = self.request.GET.get('asset',)
+        except KeyError:
+            a = None
+
+        if a:
+            asset_list = Asset.objects.filter(Q(display_name__icontains=a))
+        else:
+            asset_list = Asset.objects.all()
+        
+        return asset_list
 
 
 class AssetCreate(CreateView):
@@ -201,7 +215,8 @@ class DepartmentDelete(DeleteView):
 def get_barcode(request, serial_number):
     
 
-    ean = barcode.get('ean13', str(serial_number))
+    # ean = barcode.get('ean13', str(serial_number))
+    ean = barcode.get('code39', str(serial_number))
     filename = ean.save(serial_number)
 
     # print(filename)

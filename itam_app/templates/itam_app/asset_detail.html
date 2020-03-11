@@ -5,18 +5,52 @@
 
    	<a href="{% url 'itam_app:get_barcode' object.serial_number %}" target="_blank">Generate Barcode</a>
 
-    <p>Name: {{ object.display_name }}</p>
-    <p>Mac Address: {{ object.mac_address }}</p>
-	<p>Serial Number: {{ object.serial_number }}</p>
-	<p>Date Assigned: {{ object.date_assigned }}</p>
-	<p>Employee: {{ object.employee }}</p>
-	<p>Asset Type: {{ object.asset_type }}</p> 
-	<p>OS Type: {{ object.os_type }}</p>
-	<p>Product Type: {{ object.product_type }}</p>
-	<p>State Type: {{ object.state_type }}</p>
-	<p>Department: {{ object.department }}</p>
 
-	
+	<table class="table table-striped table-borderless table-hover table-sm">
+	  <tbody>
+	    <tr>
+	      <th>Name: </th>
+	      <td>{{ object.display_name }}</td>
+	    </tr>
+	    <tr>
+	      <th>Mac Address: </th>
+	      <td>{{ object.mac_address }}</td>
+	    </tr>
+	    <tr>
+	      <th>Serial Number: </th>
+	      <td>{{ object.serial_number }}</td>
+	    </tr>
+	    <tr>
+	      <th>Date Assigned: </th>
+	      <td>{{ object.date_assigned }}</td>
+	    </tr>
+	    <tr>
+	      <th>Employee: </th>
+	      <td>{{ object.employee }}</td>
+	    </tr>
+	    <tr>
+	      <th>Asset Type: </th>
+	      <td>{{ object.asset_type }}</td>
+	    </tr>
+	    <tr>
+	      <th>OS Type: </th>
+	      <td>{{ object.os_type }}</td>
+	    </tr>
+	    <tr>
+	      <th>Product Type: </th>
+	      <td>{{ object.product_type }}</td>
+	    </tr>
+	    <tr>
+	      <th>State Type: </th>
+	      <td>{{ object.state_type }}</td>
+	    </tr>
+	    <tr>
+	      <th>Department: </th>
+	      <td>{{ object.department }}</td>
+	    </tr>
+	  </tbody>
+	</table>
+
 
 
 {% endblock %}

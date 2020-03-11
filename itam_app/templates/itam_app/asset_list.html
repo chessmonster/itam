@@ -2,12 +2,26 @@
 
 {% block content %}
     <h1>Listing</h1>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form action="{% url 'itam_app:list' %}" method="get">
+                <input id="al-search" type="text"
+                       name="asset" value="{{ request.GET.account }}"
+                       class="form-control" />
+                <input type="submit"
+                       value="Search" class="btn btn-success" />
+            </form>
+        </div>
+    </div>
+
     <ul>
         <table class="table">
             <tr>
                 <th>Name</th>
                 <th>Mac Address</th>
                 <th>Serial Number</th>
+                <th>Assigned To</th>
                 <th>Date Assigned</th>
                 <th>Actions</th>
             </tr>
@@ -16,6 +30,7 @@
                     <td>{{ object.display_name }}</td>
                     <td>{{ object.mac_address }}</td>
                     <td>{{ object.serial_number }}</td>
+                    <td>{{ object.employee }}</td>
                     <td>{{ object.date_assigned }}</td>
                     <td><a href="{{ object.get_absolute_url }}">Details</a> |
                     <a href="{% url 'itam_app:update' object.pk %}">Update</a> |
