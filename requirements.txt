@@ -14,7 +14,7 @@ django-vanilla-views==1.0.6
 django-webtest==1.9.7
 future==0.18.2
 idna==2.8
-Jinja2==2.11.1
+Jinja2==2.11.3
 jinja2-time==0.2.0
 MarkupSafe==1.1.1
 model-mommy==2.0.0
